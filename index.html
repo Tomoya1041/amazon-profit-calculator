@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon利益計算ツール</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .patterns-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .calculator-card {
+            flex: 1;
+            min-width: 350px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .fee-display {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .result {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .result-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .calculator-card {
+                flex: 0 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Amazon利益計算ツール</h1>
+        <div class="patterns-container">
+            <!-- 計算機1 -->
+            <div class="calculator-card">
+                <h2>パターン 1</h2>
+                <div class="input-group">
+                    <label for="purchasePrice1">仕入価格(円)</label>
+                    <input type="number" id="purchasePrice1" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="sellingPrice1">売価(円)</label>
+                    <input type="number" id="sellingPrice1" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="category1">カテゴリー</label>
+                    <select id="category1"></select>
+                    <div id="feeDisplay1" class="fee-display"></div>
+                </div>
+                <div class="input-group">
+                    <label for="fbaSize1">FBAサイズ</label>
+                    <select id="fbaSize1"></select>
+                    <div id="fbaFeeDisplay1" class="fee-display"></div>
+                </div>
+                <div class="result">
+                    <div>
+                        <label>利益額(円)</label>
+                        <div id="profit1" class="result-value">0</div>
+                    </div>
+                    <div>
+                        <label>利益率(%)</label>
+                        <div id="profitRate1" class="result-value">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 計算機2 -->
+            <div class="calculator-card">
+                <h2>パターン 2</h2>
+                <div class="input-group">
+                    <label for="purchasePrice2">仕入価格(円)</label>
+                    <input type="number" id="purchasePrice2" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="sellingPrice2">売価(円)</label>
+                    <input type="number" id="sellingPrice2" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="category2">カテゴリー</label>
+                    <select id="category2"></select>
+                    <div id="feeDisplay2" class="fee-display"></div>
+                </div>
+                <div class="input-group">
+                    <label for="fbaSize2">FBAサイズ</label>
+                    <select id="fbaSize2"></select>
+                    <div id="fbaFeeDisplay2" class="fee-display"></div>
+                </div>
+                <div class="result">
+                    <div>
+                        <label>利益額(円)</label>
+                        <div id="profit2" class="result-value">0</div>
+                    </div>
+                    <div>
+                        <label>利益率(%)</label>
+                        <div id="profitRate2" class="result-value">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
